@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "pay-360": "src/"
+            "pay-360\\": "src/"
         }
     },
     "minimum-stability": "stable",
