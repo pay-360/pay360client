@@ -1,6 +1,7 @@
 <?php
 use pay360\pay360client;
 require_once('./vendor/autoload.php');
+require_once('./vendor/pay-360/pay360client/src/pay360client.php');
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     exit('Invalid request method.');
