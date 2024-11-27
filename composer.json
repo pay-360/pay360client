@@ -1,0 +1,18 @@
+{
+    "name": "pay-360/pay360client",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "360 Interactive",
+            "email": "mark@360.my"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "pay-360": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
