@@ -4,19 +4,18 @@ namespace pay360;
 
 class pay360client {
     var $postURL = 'http://localhost:82/';
-
     var $paymentIntentURI = 'gw/v1_0/paymentIntent';
     var $checkPaymentStatusURI = 'gw/checkPaymentStatus';
 
     var $paymentIntentLink;
     var $checkPaymentStatusLink;
 
-    var $username = 'XdW81wR9YB'; // All trigger pay360 stripe will under Markkhor
-    var $password = "OoB9S7fnjFAyyI2RcVGynkW2fR4N17EqUhdzR9fQ";  //This need to change (follow live pay.360.my db oauth secret)
+    protected $username;
+    protected $password;
 
-    var $success_url = 'abc_success_url';
-    var $status_url = 'abc_status_url';
-    var $cancel_url = 'abc_cancel_url';
+    var $success_url;
+    var $status_url;
+    var $cancel_url;
 
     var $statusCode = [
         1   => 'Pending Payment',
@@ -31,17 +30,16 @@ class pay360client {
 
     var $testingMode = false;
 
-    public function __construct() {
+    public function __construct($username, $password) {
+        $this->username = $username;
+        $this->password = $password;
         $this->paymentIntentLink = $this->postURL . $this->paymentIntentURI;
         $this->checkPaymentStatusLink = $this->postURL . $this->checkPaymentStatusURI;
     }
 
-    /**
-     * PW241122 Whenever user want to trigger payment, they create payment intent to inform pay360 to create the payment session 
-     */
+    //PW241122 Whenever user want to trigger payment, they create payment intent to inform pay360 to create the payment session 
 	public function paymentIntent($payment_intent_info) {
 
-        //PW
         $refID = $payment_intent_info['refID'];
         $line_items = $payment_intent_info['line_items'];
         $customer_email = $payment_intent_info['email'];
@@ -73,7 +71,7 @@ class pay360client {
         return $response;
 	}
 
-    public function checkPaymentStatus($refID) {
+    public function checkPaymentStatus($refID, $user, $pass) {
         $url = $this->checkPaymentStatusLink;
         $data = [
             'user'  => urlencode($this->username),
