@@ -49,8 +49,7 @@ $result = $pay360client->paymentIntent($payment_intent_info);
 $myresult = json_decode($result, true);
 
 if ($myresult) {
-    $redirect_url = "http://localhost:82/web_checkout/" . $refID;
-    header("Location: " . $redirect_url);
+    header("Location: " . $pay360client->redirect_url);
 }
 else {
     echo "result: " . $result . "<br />";

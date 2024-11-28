@@ -64,7 +64,7 @@
         </tr>
         <tr>
             <td></td>
-            <td>- eg. http://localhost/pay360client/success_url</td>
+            <td>- eg. http://pay.360.my/pay360client/success_url</td>
         </tr>
         <tr>
             <td>Cancel URL : </td>
@@ -72,7 +72,7 @@
         </tr>
         <tr>
             <td></td>
-            <td>- eg. http://localhost/pay360client/cancel_url</td>
+            <td>- eg. http://pay.360.my/pay360client/cancel_url</td>
         </tr>
         <tr>
             <td>Status URL : </td>
@@ -80,7 +80,7 @@
         </tr>
         <tr>
             <td></td>
-            <td>- eg. http://localhost/pay360client/status_url</td>
+            <td>- eg. http://pay.360.my/pay360client/status_url</td>
         </tr>
         <tr>
             <td><br><input type="submit" value="Submit"></td>

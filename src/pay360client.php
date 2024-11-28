@@ -3,19 +3,22 @@
 namespace pay360;
 
 class pay360client {
-    var $postURL = 'http://localhost:82/';
+    var $postURL = 'https://pay.360.my/';
+
     var $paymentIntentURI = 'gw/v1_0/paymentIntent';
     var $checkPaymentStatusURI = 'gw/checkPaymentStatus';
 
     var $paymentIntentLink;
     var $checkPaymentStatusLink;
 
-    protected $username;
-    protected $password;
+    var $username;
+    var $password;
 
     var $success_url;
     var $status_url;
     var $cancel_url;
+
+    var $redirect_url;
 
     var $statusCode = [
         1   => 'Pending Payment',
@@ -33,11 +36,12 @@ class pay360client {
     public function __construct($username, $password) {
         $this->username = $username;
         $this->password = $password;
+
         $this->paymentIntentLink = $this->postURL . $this->paymentIntentURI;
         $this->checkPaymentStatusLink = $this->postURL . $this->checkPaymentStatusURI;
     }
 
-    //PW241122 Whenever user want to trigger payment, they create payment intent to inform pay360 to create the payment session 
+    // PW241122 Whenever user want to trigger payment, they create payment intent to inform pay360 to create the payment session
 	public function paymentIntent($payment_intent_info) {
 
         $refID = $payment_intent_info['refID'];
@@ -68,6 +72,7 @@ class pay360client {
         ];
 
         $response = $this->curlVisit($url, $data);
+        $this->redirect_url = $this->postURL . 'web_checkout/' . $refID;
         return $response;
 	}
 

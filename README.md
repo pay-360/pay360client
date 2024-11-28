@@ -20,18 +20,13 @@ How To Test pay360client?
                                     eg. if the success_page file (success_page.php) located in x/success_page.php, then type http://localhost/x/success_page.php in the Success URL box
 
 2.1 Mode: Credit Card
-    > What to fill in?
-        >> Email: [insert valid email address]
-        >> Payment Method: Card
-        >> Card Information: 4242 4242 4242 4242
-        >> MM/YY: 12/34
-        >> CVC: 567
-        >> Cardholder: [insert any string]
-    > Redirect to success_page
+<br>Test Info:
+<br>Card Number => 4242 4242 4242 4242
+<br>MM/YY => 12/34
+<br>CVC => 567
 
 2.2 Mode: Duitnow
-    > Select Bank: PYN Bank A
-    > Username: user1
-    > Password: password1
-    > Press Submit Payment - Confirm
-    > Redirect to 404 page
+<br>Test Info:
+<br>Select Bank => PYN Bank A
+<br>Username => user1
+<br>Password => password1
